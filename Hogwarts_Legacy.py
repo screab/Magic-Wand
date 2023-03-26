@@ -106,9 +106,10 @@ def main():
     # Create the manager and shop to search for wands
     shop = Shop(wand_class=GestureWand)
     wands = []
-    colors = ["#a333c8", "2185d0", "0x21ba45", "#fbbd08", "#f2711c", "#db2828"]
-    color_random = random.uniform(1, 5)
+    colors = ["#a333c8", "#2185d0", "0x21ba45", "#fbbd08", "#f2711c", "#db2828"]
+    color_random = random.randint(0, len(colors))
     print(color_random)
+    print(colors[color_random])
     try:
         # Scan for wands until it finds one
         while len(wands) == 0:
@@ -121,12 +122,17 @@ def main():
             sleep = random.uniform(0.1, 0.2)
 #            transition = math.ceil(sleep * 10)
 
-            wand.set_led("0x21ba45")
             if wand.spell == "protego":
                 print('protego spell detected')
                 wand.spell = None
             if wand.spell == "changespells":
                 print('changle spells detected')
+
+                color_random = random.randint(0, len(colors))
+                print(color_random)
+                print(colors[color_random])
+                wand.set_led(colors[color_random])
+
                 wand.spell = None
             if wand.spell == "ancient":
                 print('ancient spell detected')
