@@ -107,9 +107,7 @@ def main():
     shop = Shop(wand_class=GestureWand)
     wands = []
     colors = ["#a333c8", "#2185d0", "0x21ba45", "#fbbd08", "#f2711c", "#db2828"]
-    color_random = random.randint(0, len(colors))
-    print(color_random)
-    print(colors[color_random])
+
     try:
         # Scan for wands until it finds one
         while len(wands) == 0:
@@ -128,7 +126,7 @@ def main():
             if wand.spell == "changespells":
                 print('changle spells detected')
 
-                color_random = random.randint(0, len(colors))
+                color_random = random.randint(0, len(colors)-1)
                 print(color_random)
                 print(colors[color_random])
                 wand.set_led(colors[color_random])
