@@ -106,7 +106,9 @@ def main():
     # Create the manager and shop to search for wands
     shop = Shop(wand_class=GestureWand)
     wands = []
-
+    colors = ["#a333c8", "2185d0", "0x21ba45", "#fbbd08", "#f2711c", "#db2828"]
+    color_random = random.uniform(1, 5)
+    print(color_random)
     try:
         # Scan for wands until it finds one
         while len(wands) == 0:
@@ -118,146 +120,87 @@ def main():
             # Make a random sleep and transition time
             sleep = random.uniform(0.1, 0.2)
 #            transition = math.ceil(sleep * 10)
+
+            wand.set_led("0x21ba45")
             if wand.spell == "protego":
                 print('protego spell detected')
-                write_report(NULL_CHAR*2+chr(20)+NULL_CHAR*5) #press letter q
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "changespells":
                 print('changle spells detected')
-                write_report(NULL_CHAR*2+chr(54)+NULL_CHAR*5) #press letter ,
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "ancient":
                 print('ancient spell detected')
-                write_report(NULL_CHAR*2+chr(27)+NULL_CHAR*5) #press letter x
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "revelio":
                 print('revelio spell detected')
-                write_report(NULL_CHAR*2+chr(21)+NULL_CHAR*5) #press letter r
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "basic":
                 print('basic spell detected')
-                write_report(NULL_CHAR*2+chr(5)+NULL_CHAR*5) #press letter b
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "ancient_throw":
                 print('ancient_throw spell detected')
-                write_report(NULL_CHAR*2+chr(29)+NULL_CHAR*5) #press letter z
-                write_report(NULL_CHAR*8)
                 wand.spell = None
+
             #LEVEL 1 - FIRST ROW OF SPELLS
             if wand.spell == "expelliarmus":
                 print('expelliarmus spell detected')
-                write_report(NULL_CHAR*2+chr(30)+NULL_CHAR*5) #press number 1
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "incendio":
                 print('incendio spell detected')
-                write_report(NULL_CHAR*2+chr(31)+NULL_CHAR*5) #press number 2
-                # Release keys
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "levioso":
                 print('levioso spell detected')
-                write_report(NULL_CHAR*2+chr(32)+NULL_CHAR*5) #press number 3
-                # Release keys
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "accio":
                 print('accio spell detected')
-                write_report(NULL_CHAR*2+chr(33)+NULL_CHAR*5) #press number 4
-                # Release keys
-                write_report(NULL_CHAR*8)
                 wand.spell = None
+
             #LEVEL 2 -SECOND ROW OF SPELLS
             if wand.spell == "lumos":
                 print('lumos spell detected')
-                write_report(NULL_CHAR*2+chr(30)+NULL_CHAR*5) #press number 1
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "nox":
-                write_report(NULL_CHAR*2+chr(30)+NULL_CHAR*5)
-                # Release keys
-                write_report(NULL_CHAR*8)  #press number 1
                 wand.spell = None
             if wand.spell == "disillusionment":
                 print('dissillusionment charm detected')
-                write_report(NULL_CHAR*2+chr(31)+NULL_CHAR*5) #press number 2
-                # Release keys
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "reparo":
                 print('reparo spell detected')
-                write_report(NULL_CHAR*2+chr(32)+NULL_CHAR*5) #press number 3
-                # Release keys
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "accio":
                 print('accio spell detected')
-                write_report(NULL_CHAR*2+chr(33)+NULL_CHAR*5) #press number 4
-                # Release keys
-                write_report(NULL_CHAR*8)
                 wand.spell = None
+
             #LEVEL 3 - THIRD ROW OF SPELLS
             if wand.spell == "lumos":
                 print('lumos spell detected')
-                write_report(NULL_CHAR*2+chr(30)+NULL_CHAR*5) #press number 1
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "nox":
-                write_report(NULL_CHAR*2+chr(30)+NULL_CHAR*5)
-                # Release keys
-                write_report(NULL_CHAR*8)  #press number 1
                 wand.spell = None
             if wand.spell == "flipendo":
                 print('flipendo spell detected')
-                write_report(NULL_CHAR*2+chr(31)+NULL_CHAR*5) #press number 2
-                # Release keys
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "reparo":
                 print('reparo spell detected')
-                write_report(NULL_CHAR*2+chr(32)+NULL_CHAR*5) #press number 3
-                # Release keys
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "wingardium_leviosa":
                 print('wingardium_leviosa spell detected')
-                write_report(NULL_CHAR*2+chr(33)+NULL_CHAR*5) #press number 3
-                # Release keys
-                write_report(NULL_CHAR*8)
-                wand.spell = None                
+                wand.spell = None
+
             #LEVEL 4 -Fourth ROW OF SPELLS
             if wand.spell == "lumos":
                 print('lumos spell detected')
-                write_report(NULL_CHAR*2+chr(30)+NULL_CHAR*5) #press number 1
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "nox":
-                write_report(NULL_CHAR*2+chr(30)+NULL_CHAR*5)
-                # Release keys
-                write_report(NULL_CHAR*8)  #press number 1
+                print('nox spell detected')
                 wand.spell = None
             if wand.spell == "wingardium_leviosa":
                 print('wingardium_leviosa spell detected')
-                write_report(NULL_CHAR*2+chr(31)+NULL_CHAR*5) #press number 2
-                # Release keys
-                write_report(NULL_CHAR*8)
-                wand.spell = None
             if wand.spell == "reparo":
                 print('reparo spell detected')
-                write_report(NULL_CHAR*2+chr(32)+NULL_CHAR*5) #press number 3
-                # Release keys
-                write_report(NULL_CHAR*8)
                 wand.spell = None
             if wand.spell == "levioso":
                 print('levioso spell detected')
-                write_report(NULL_CHAR*2+chr(33)+NULL_CHAR*5) #press number 4
-                # Release keys
-                write_report(NULL_CHAR*8)
                 wand.spell = None                
             time.sleep(sleep)
 
