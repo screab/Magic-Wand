@@ -125,44 +125,38 @@ Once you've completed the install, Run the two bottom commands in terminal to en
 
 > sudo apt-get upgrade
 
+> sudo apt-get dist-upgrade
+
+> sudo apt-get autoremove
+
 
 **Step 2: Install Python 3**
 
 Python3 should already be installed. But just incase run the command: 
-sudo apt install python3 
 
-**Step 3: Install modules for Kano Wand**
+> sudo apt install python3 
 
-In terminal:
+> sudo pip3 install bluepy==1.2.0 
 
-> cd /usr/local/lib/python3.9/dist-packages
+> sudo pip3 install numpy==1.22.0 
 
-then
+> sudo pip3 install MooseGesture==1.0.2
 
-> git clone https://github.com/GammaGames/kano_wand.git
+Also install this dependecy:
 
-> sudo pip3 install bluepy moosegesture
+> sudo apt-get install libatlas-base-dev
 
-Had to use sudo for these to get the proper permissions. Also had to use the following commands instead to install numpy, for whatever reason, couldn't get pip to work. Might have been another path issue, but this worked for me so I went with it:
+**Step 3: Clone the Hogwarts Legacy Wand repository**
 
-> sudo apt-get install python3-numpy
+> git clone https://github.com/screab/Magic-Wand.git
 
-**Step 4: Clone the Hogwarts Legacy Wand repository**
+> cd Magic-Wand
 
-Find a place where you want to clone the respository to, I essentially did it in my "Downloads" folder. So to return to home, type and enter:
+> git clone https://github.com/screab/kano_wand.git
 
-> cd
+**Step 4: Run the code and connect your wand:
 
-then 
-
-> cd Downloads
-
-> sudo apt install git
-
-> git clone https://github.com/Thats-so-Mo/Hogwarts-Legacy-Wand.git
-
-> git clone https://github.com/GammaGames/kano_wand.git
-
+> sudo python3 Hogwarts_Legacy.py
 
 ~~~
 

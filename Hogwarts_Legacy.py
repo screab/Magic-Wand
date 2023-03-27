@@ -155,12 +155,13 @@ def main():
 
                 wand.spell = None
             if wand.spell == "nox":
-                wand.spell = None
-            if wand.spell == "disillusionment":
-                print('dissillusionment charm detected')
+                print('nox charm detected')
 
                 wand.disconnect()
 
+                wand.spell = None
+            if wand.spell == "disillusionment":
+                print('dissillusionment charm detected')
                 wand.spell = None
             if wand.spell == "reparo":
                 print('reparo spell detected')
