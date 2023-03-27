@@ -207,6 +207,11 @@ def main():
                 wand.spell = None                
             time.sleep(sleep)
 
+            print('While loop ended')
+
+        print('While loop exited')
+
+
 #    # Detect keyboard interrupt and disconnect wands,
     except KeyboardInterrupt as e:
         for wand in wands:
