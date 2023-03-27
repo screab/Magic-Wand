@@ -19,17 +19,8 @@
 
 from kano_wand.kano_wand import Shop, Wand, PATTERN
 import moosegesture as mg
-import sys
 import time
 import random
-
-
-NULL_CHAR = chr(0)
-
-def write_report(report):
-    with open('/dev/hidg0', 'rb+') as fd:
-        fd.write(report.encode())
-
 
 #Wand Module classes and definitions
 class GestureWand(Wand):
@@ -125,12 +116,6 @@ def main():
                 wand.spell = None
             if wand.spell == "changespells":
                 print('changle spells detected')
-
-                color_random = random.randint(0, len(colors)-1)
-                print(color_random)
-                print(colors[color_random])
-                wand.set_led(colors[color_random])
-
                 wand.spell = None
             if wand.spell == "ancient":
                 print('ancient spell detected')
@@ -162,11 +147,20 @@ def main():
             #LEVEL 2 -SECOND ROW OF SPELLS
             if wand.spell == "lumos":
                 print('lumos spell detected')
+
+                color_random = random.randint(0, len(colors)-1)
+                print(color_random)
+                print(colors[color_random])
+                wand.set_led(colors[color_random])
+
                 wand.spell = None
             if wand.spell == "nox":
                 wand.spell = None
             if wand.spell == "disillusionment":
                 print('dissillusionment charm detected')
+
+                wand.disconnect()
+
                 wand.spell = None
             if wand.spell == "reparo":
                 print('reparo spell detected')
