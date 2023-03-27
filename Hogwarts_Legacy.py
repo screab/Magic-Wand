@@ -68,6 +68,10 @@ class GestureWand(Wand):
         self.subscribe_button()
         self.subscribe_position()
 
+    def post_disconnect(self):
+        print("Disconnected...")
+
+
     def on_position(self, x, y, pitch, roll):
         if self.pressed:
             # While holding the button,
@@ -156,7 +160,7 @@ def main():
                 wand.spell = None
             if wand.spell == "nox":
                 print('nox charm detected')
-
+                sleep = random.uniform(0.1, 0.2)
                 wand.disconnect()
 
                 wand.spell = None
